@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcia & Roberto - Nuestra Boda</title>
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Migra Extralight';
+            src: url('Migra-Extralight.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Tenor Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E5E8DB;
+            color: #3d3d3d;
+        }
+
+        h1, h2 {
+            font-family: 'Migra Extralight', serif;
+        }
+
+        .hero {
+            background: url('Foto BG M&R boda.jpg') no-repeat center center/cover;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #737666;
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #C0C4B3;
+        }
+
+        .map-btn {
+            background-color: #737666;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: #737666;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sección de Portada -->
+    <div class="hero">
+        <h1>M & R</h1>
+        <p class="date">13. Septiembre. 2025</p>
+        <div class="countdown" id="countdown"></div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfCWRlzv0wMXENBJD5fDHx8VuSjeVyL-jCo4PdCPgDa9A2rPw/viewform?usp=header" class="btn">CONFIRMAR ASISTENCIA</a>
+    </div>
+
+    <!-- Sección de Padres -->
+    <div class="section">
+        <h2>NUESTROS PADRES</h2>
+        <p><strong>Madre de la novia:</strong> Sonia Eleonora Tejeda León</p>
+        <p><strong>Padres del novio:</strong> Dolores García Becerra y José Roberto Rodríguez Rodríguez</p>
+    </div>
+
+    <!-- Itinerario -->
+    <div class="section">
+        <h2>ITINERARIO</h2>
+        <p><strong>CEREMONIA</strong><br>Jardín Casa Azul - 13:00 hrs<br>*Favor de llegar 10 minutos antes.</p>
+        <a href="https://maps.app.goo.gl/okRjDGAWUhtrm41c7" class="map-btn">Ver Mapa</a>
+
+        <p><strong>CÓCTEL</strong><br>Mirador Casa Azul - 14:00 hrs</p>
+        <a href="https://maps.app.goo.gl/okRjDGAWUhtrm41c7" class="map-btn">Ver Mapa</a>
+
+        <p><strong>RECEPCIÓN</strong><br>Explanada Casa Azul - 15:00 hrs</p>
+        <a href="https://maps.app.goo.gl/okRjDGAWUhtrm41c7" class="map-btn">Ver Mapa</a>
+    </div>
+
+    <!-- Vestimenta -->
+    <div class="section">
+        <h2>VESTIMENTA</h2>
+        <p>Hombres: Traje Completo (Corbata)<br>Mujeres: Vestido Largo o Midi</p>
+        <p>*Evitar color blanco y vestido verde sage u oliva.</p>
+    </div>
+
+    <!-- Mesa de Regalos -->
+    <div class="section">
+        <h2>MESA DE REGALOS</h2>
+        <p>Si gustas tener un detalle con nosotros, lo podrás hacer aquí:</p>
+        <p><strong>Jose Roberto Rodriguez Gracia</strong></p>
+        <p><strong>Número de tarjeta:</strong> 0000 0000 0000 0000</p>
+        <p><strong>Clabe Interbancaria:</strong> 0000 0000 0000 876377</p>
+    </div>
+
+    <!-- Hospedaje -->
+    <div class="section">
+        <h2>HOSPEDAJE</h2>
+        <p>Próximamente agregaremos las opciones de hoteles y taxis.</p>
+    </div>
+
+    <!-- Save the Date -->
+    <div class="section">
+        <h2>SAVE THE DATE</h2>
+        <a href="https://calendar.google.com/calendar/r/eventedit?text=Marcia+y+Roberto+-+Nuestra+Boda&dates=20250913T130000Z/20250913T235900Z" class="btn">Añadir a Calendario</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Con amor, Marcia & Roberto</p>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const weddingDate = new Date("September 13, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = weddingDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days} días ${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
